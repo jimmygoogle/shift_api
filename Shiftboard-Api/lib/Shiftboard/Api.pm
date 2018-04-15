@@ -1,5 +1,4 @@
 package Shiftboard::Api;
-use lib '/home/jbutler/perl5/lib/perl5';
 use strict;
 use Shiftboard::Memcache;
 use Dancer2;
