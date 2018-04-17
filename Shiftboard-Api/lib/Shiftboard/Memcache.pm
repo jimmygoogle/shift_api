@@ -26,9 +26,6 @@ sub new {
       'compress_threshold' => 10_000,
     };
 
-    #$memd->set_servers($pools);
-    #$memd->enable_compress(0);
-  
     $self->{connection} = $memd;
 
     return $self;
