@@ -86,11 +86,11 @@ post '/split' => http_basic_auth required => sub {
     my $response = {};
     my @letters = split('', $string_param);
 
-    my $index = 0;
+    my $position = 1;
     foreach my $letter (@letters) {
-        my $key = ($index % 2 == 0) ? 'even' : 'odd';
+        my $key = ($position % 2 == 0) ? 'even' : 'odd';
         push(@{$response->{$key}}, $letter);
-        $index++;
+        $position++;
     }
 
     ## cache result
@@ -250,7 +250,7 @@ An optional parameter which is an SHA1 signature based on the is a string parame
 =cut
 sub _signatureIsValid {
     my ($args) = @_;
-    
+
     my $status = 1;
     my $signature = $args->{signature};
     my $require_signature = $args->{require_signature} || 0;
