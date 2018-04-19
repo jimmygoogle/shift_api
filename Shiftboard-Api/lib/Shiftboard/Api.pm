@@ -83,7 +83,11 @@ post '/split' => http_basic_auth required => sub {
     ## check the user and their signature and if the user authenticated properly split the string
     _authenticateRequest($args);
 
-    my $response = {};
+    ## predefine the keys in case we only get one letter to split
+    my $response = {
+        odd => [],
+        even => [],
+    };
     my @letters = split('', $string_param);
 
     my $position = 1;
