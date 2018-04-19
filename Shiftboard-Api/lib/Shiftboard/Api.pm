@@ -46,7 +46,7 @@ C<{"string":"split me"}>
 
 =head1 DESCRIPTION
 
-The class will handle POST requests with required parameters and it will return data to the user if their username and password are correct,
+The class will handle POST/GET requests with required parameters and it will return data to the user if their username and password are correct,
 the sha1 signature is valid and they have all of the required parameters.
 
 =cut
@@ -54,7 +54,7 @@ the sha1 signature is valid and they have all of the required parameters.
 =head2 /split
 
 The post method handles the 'split' route. It takes a string as a parameter and will return a JSON object containing
-and 'odd' and 'even' key with the odd and even character from the string.
+an 'odd' and 'even' key with the odd and even characters from the string.
 
 B<Arguments:>
 
@@ -103,8 +103,8 @@ post '/split' => http_basic_auth required => sub {
 
 =head2 /join
 
-The post method handles the 'join' route. It takes a string as a parameter and will return a JSON object containing
-and 'odd' and 'even' key with the odd and even character from the string.
+The post method handles the 'join' route. It takes a hash with 2 keys which contain arrays of characters as a parameter and will return a JSON object containing
+the joined elements from the arrays
 
 B<Arguments:>
 
@@ -112,11 +112,11 @@ B<Arguments:>
 
 =item C<odd>
 
-A required JSON parameter in which the key is 'odd' is an array of letters that will be merged with the 'even' key and returned as a string
+A required JSON parameter in which the key is 'odd' is an array of characters that will be merged with the 'even' key and returned as a string
 
 =item C<even>
 
-A required JSON parameter in which the key is 'even' is an array of letters that will be merged with the 'odd' key and returned as a string
+A required JSON parameter in which the key is 'even' is an array of characters that will be merged with the 'odd' key and returned as a string
 
 =item C<signature>
 
@@ -230,8 +230,7 @@ sub _userIsValid {
 
 =head2 _signatureIsValid
 
-The post method handles the 'join' route. It takes a string as a parameter and will return a JSON object containing
-and 'odd' and 'even' key with the odd and even character from the string.
+The method validates the signature passed in verus one created using the parameters passed in.
 
 B<Arguments:>
 
@@ -272,8 +271,7 @@ sub _signatureIsValid {
 
 =head2 _setErrorResponse
 
-The post method handles the 'join' route. It takes a string as a parameter and will return a JSON object containing
-and 'odd' and 'even' key with the odd and even character from the string.
+The method sets the error response for invalid input or users.
 
 B<Arguments:>
 

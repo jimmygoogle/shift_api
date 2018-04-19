@@ -40,7 +40,7 @@ B<Arguments:>
 
 =item C<username>
 
-A required parameter which is the username (key) that our was used to store our data
+A required parameter which is the username (key) that was used to store our data
 
 =back
 
@@ -62,7 +62,7 @@ B<Arguments:>
 
 =item C<username>
 
-A required parameter which is the username (key) that our was used to store our data
+A required parameter which is the username (key) that was used to store our data
 
 =item C<response>
 
