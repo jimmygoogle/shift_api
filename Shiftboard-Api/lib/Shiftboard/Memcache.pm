@@ -1,7 +1,6 @@
 package Shiftboard::Memcache;
 
 use strict;
-use JSON;
 use Cache::Memcached;
 
 our $pools = ['127.0.0.1:11211'];
